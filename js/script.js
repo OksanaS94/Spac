@@ -1,11 +1,11 @@
-const sections   = document.querySelectorAll("section");
-const navLi      = document.querySelectorAll("nav ul li");
-const teamItems  = document.querySelector(".team__items:nth-of-type(2)");
-const teamBtn    = document.querySelector(".team__btn");
-const downlBtn   = document.querySelectorAll(".download__btn");
-const popup      = document.querySelector(".overlay");
+const sections = document.querySelectorAll("section");
+const navLi = document.querySelectorAll("nav ul li");
+const teamItems = document.querySelector(".team__items:nth-of-type(2)");
+const teamBtn = document.querySelector(".team__btn");
+const downlBtn = document.querySelectorAll(".download__btn");
+const popup = document.querySelector(".overlay");
 const closePopup = document.querySelector(".popup__close");
-const bodyPage   = document.querySelector('body');
+const bodyPage = document.querySelector('body');
 
 
 window.addEventListener("scroll", () => {
@@ -27,20 +27,20 @@ window.addEventListener("scroll", () => {
 });
 
 
-function clickAccordion (a, b) {
+function clickAccordion(a, b) {
   a.addEventListener("click", () => {
     b.classList.add("team_active");
     a.style.display = 'none';
-  }); 
+  });
 }
 
 clickAccordion(teamBtn, teamItems);
 
- downlBtn.forEach((el) => {
-    el.addEventListener("click", () => {
-      popup.style.display = "block";
-      bodyPage.style.overflow = "hidden";
-    });
+downlBtn.forEach((el) => {
+  el.addEventListener("click", () => {
+    popup.style.display = "block";
+    bodyPage.style.overflow = "hidden";
+  });
 });
 
 closePopup.addEventListener("click", () => {
@@ -50,8 +50,17 @@ closePopup.addEventListener("click", () => {
 });
 
 document.addEventListener('keydown', (evn) => {
-	if(evn.key === "Escape"){
+  if (evn.key === "Escape") {
     popup.style.display = "none";
-    bodyPage.style.overflow = "scroll";  
-	}
+    bodyPage.style.overflow = "scroll";
+  }
 });
+
+
+function getMerchantCount() {
+  const url = 'https://api.spaceso2o.com/api/users/public/getTotalCounts'
+  return fetch(url).then((resp) => {
+      return resp.json();
+      //console.log(resp.json())
+    })
+}
