@@ -426,8 +426,9 @@
    <script src="lib/countUp.min.js"></script>
    <script>    const options = { duration: 3.5, };
       window.onload = function () {
+
          getMerchantCount().then(c => {
-            var countUp = new CountUp('merchants__num', +c.total + 20000, options); countUp.start();
+            var countUp = new CountUp('merchants__num', (+c.merchant + 20000).toLocaleString(), options); countUp.start();
          });
 
       }
@@ -436,9 +437,9 @@
          const mainCC = document.querySelector('.merchants__num');
          console.log(cc);
          getMerchantCount().then(c => {
-            var cnt = c.total + 20000;
-            cc.innerHTML = cnt;
-            mainCC.innerHTML= cnt;
+            var cnt = c.merchant + 20000;
+            cc.innerHTML = cnt.toLocaleString();
+            mainCC.innerHTML= cnt.toLocaleString();
 
          })
 
