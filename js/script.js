@@ -6,6 +6,7 @@ const downlBtn = document.querySelectorAll(".download__btn");
 const popup = document.querySelector(".overlay");
 const closePopup = document.querySelector(".popup__close");
 const bodyPage = document.querySelector('body');
+const cc = document.querySelector('.cc');
 
 
 window.addEventListener("scroll", () => {
@@ -64,3 +65,5 @@ function getMerchantCount() {
       //console.log(resp.json())
     })
 }
+
+
