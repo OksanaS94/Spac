@@ -424,13 +424,14 @@
    <script src="lib/jquery-3.6.0.min.js"></script>
    <script src="js/script.js"></script>
    <script src="lib/countUp.min.js"></script>
-   <script>    const options = { duration: 3.5, };
-      window.onload = function () {
-
-         getMerchantCount().then(c => {
-            var countUp = new CountUp('merchants__num', (+c.merchant + 20000).toLocaleString(), options); countUp.start();
+   <script>   
+    const options = { duration: 3.5 };
+      window.onload = function () { 
+         
+         getMerchantCount().then(c => {  
+            var countUp = new CountUp('merchants__num', (+c.merchant + 20000), options);
+             countUp.start();
          });
-
       }
       setInterval(function () {
          const cc = document.querySelector('.cc');
